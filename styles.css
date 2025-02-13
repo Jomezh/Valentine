@@ -75,3 +75,111 @@ body {
 .hidden {
     display: none;
 }
+.flower {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #7ef0ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    animation: bloom 5s infinite;
+}
+
+.flower::before, .flower::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #ffe375;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.flower::before {
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.flower::after {
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes bloom {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes moveFlower {
+    0% {
+        top: 10%;
+        left: 10%;
+    }
+    100% {
+        top: 90%;
+        left: 90%;
+    }
+}
+
+/* Create random positions for flowers */
+@keyframes randomMove {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-100px, 50px);
+    }
+    50% {
+        transform: translate(200px, 100px);
+    }
+    75% {
+        transform: translate(-150px, 150px);
+    }
+    100% {
+        transform: translate(50px, -200px);
+    }
+}
+
+/* Add flowers to different margins */
+.flower:nth-child(1) {
+    top: 10px;
+    left: 10%;
+    animation: bloom 4s infinite, randomMove 5s infinite;
+}
+
+.flower:nth-child(2) {
+    top: 30%;
+    left: 10%;
+    animation: bloom 6s infinite, randomMove 7s infinite;
+}
+
+.flower:nth-child(3) {
+    top: 50%;
+    left: 80%;
+    animation: bloom 5s infinite, randomMove 6s infinite;
+}
+
+.flower:nth-child(4) {
+    top: 80%;
+    left: 70%;
+    animation: bloom 7s infinite, randomMove 8s infinite;
+}
+
+.flower:nth-child(5) {
+    top: 10%;
+    left: 90%;
+    animation: bloom 5s infinite, randomMove 5s infinite;
+}
