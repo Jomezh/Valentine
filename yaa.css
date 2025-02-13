@@ -20,6 +20,9 @@ body {
     position: relative; /* Position hearts inside the card */
     z-index: 10;
 }
+.catgif{
+    max-width: 75%;
+}
 
 #heartContainer {
     position: absolute;
